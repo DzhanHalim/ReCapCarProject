@@ -1,8 +1,9 @@
-﻿using System;
+﻿using Entities.Abstract;
+using System;
 
 namespace Entities
 {
-    public class Car : ICar
+    public class Car : IEntity
     {
         public int Id { get; set; }
         public int BrandId { get; set; }
