@@ -6,6 +6,7 @@ using Entities;
 namespace Console
 {
     using Business.Concrete;
+    using DataAccess.Concrete.EntityFramework;
     using DataAccess.Concrete.InMemory;
     using System;
     class Program
@@ -14,25 +15,39 @@ namespace Console
         {
              
 
-            CarManager carManager = new CarManager(new CarDal());
-            Car car = new Car { BrandId = 3, ColorId = 3, Description = "Volvo", Id = 3, ModelYear = 2000, Price = 150 };
-            Car car2 = new Car { BrandId = 3, ColorId = 3, Description = "Volvo", Id = 4, ModelYear = 2000, Price = 150 };
-            Car car3 = new Car { BrandId = 3, ColorId = 3, Description = "Mercedes", Id = 5, ModelYear = 2000, Price = 200 };
+            CarManager carManager = new CarManager(new EfCarDal());
+            Car car = new Car { BrandId = 1, ColorId = 2, Description = "Mercedes-Benz", Id = 3, ModelYear = 2000, Price = 150 };
+            Car car2 = new Car { BrandId = 2, ColorId = 3, Description = "Volvo D40", Id = 4, ModelYear = 2000, Price = 150 };
+            Car car3 = new Car { BrandId = 3, ColorId = 1, Description = "Audi A3", Id = 5, ModelYear = 2000, Price = 200 };
 
+            Car carToUpdate = new Car { BrandId = 3, ColorId = 3, Description = "Mercedes2", Id = 5, ModelYear = 2000, Price = 200 };
 
-
-            // carManager.Add(car3);
-            // carManager.Delete(car3);
+            // operation add a new car
+             //carManager.Add(car2);
+              
             // carManager.GetAllBydId(5);
-            //  carManager.GetCarsByBrandId(3);
+            // carManager.GetCarsByBrandId(3);
             // carManager.GetCarsByColorId(3);
+
+            // operation update
+            //carManager.Update(carToUpdate);
             
-            foreach (var item in carManager.GetAllCars())
+            // operation get all cars
+            foreach (var item in carManager.GetCarDetails())
             {
                 //carManager.Delete(item);
-                Console.WriteLine(item.Description);
+                Console.WriteLine(item.Description + item.BrandName + " / " + item.ColorName + " / " + item.Price);
             }
 
+            // operation get a car by his id
+            //foreach (var item in carManager.GetAllBydId(5))
+            //{
+            //    //carManager.Delete(item);
+            //    Console.WriteLine(item.Description + " / " );
+            //}
+
+            // deleteing operation
+            //carManager.Delete(car2);
 
             Console.ReadLine();
         }

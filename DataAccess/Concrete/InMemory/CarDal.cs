@@ -1,6 +1,7 @@
 ﻿using DataAccess.Abstract;
 using DataAccess.Concrete.EntityFramework;
 using Entities;
+using Entities.DTos;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -10,7 +11,7 @@ using System.Text;
 
 namespace DataAccess.Concrete.InMemory
 {
-    public class CarDal : ICarDal
+    public class CarDal 
     {
         List<Car> _car = new List<Car>();
         public void Add(Car car)
@@ -71,6 +72,11 @@ namespace DataAccess.Concrete.InMemory
             }
 
 
+        }
+
+        public List<CarDetailDTo> GetCarDetails()
+        {
+            throw new NotImplementedException();
         }
     }
 }
