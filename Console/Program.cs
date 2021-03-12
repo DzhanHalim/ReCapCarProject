@@ -23,7 +23,8 @@ namespace Console
             Car carToUpdate = new Car { BrandId = 3, ColorId = 3, Description = "Mercedes2", Id = 5, ModelYear = 2000, Price = 200 };
 
             // operation add a new car
-            //carManager.Add(car2);
+         
+            //carManager.Add(car3);
 
             // carManager.GetAllBydId(5);
             // carManager.GetCarsByBrandId(3);
@@ -31,6 +32,7 @@ namespace Console
 
             // operation update
             //carManager.Update(carToUpdate);
+
 
             // operation get all cars
             var result = carManager.GetCarDetails();
@@ -42,6 +44,7 @@ namespace Console
             {
                 //carManager.Delete(item);
                 Console.WriteLine(item.Description + item.BrandName + " / " + item.ColorName + " / " + item.Price);
+                     
             }
                 Console.WriteLine(result.Message);
             }
