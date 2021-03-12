@@ -23,22 +23,33 @@ namespace Console
             Car carToUpdate = new Car { BrandId = 3, ColorId = 3, Description = "Mercedes2", Id = 5, ModelYear = 2000, Price = 200 };
 
             // operation add a new car
-             //carManager.Add(car2);
-              
+            //carManager.Add(car2);
+
             // carManager.GetAllBydId(5);
             // carManager.GetCarsByBrandId(3);
             // carManager.GetCarsByColorId(3);
 
             // operation update
             //carManager.Update(carToUpdate);
-            
+
             // operation get all cars
-            foreach (var item in carManager.GetCarDetails())
+            var result = carManager.GetCarDetails();
+            if(result.Success)
+            {
+
+           
+            foreach (var item in result.Data)
             {
                 //carManager.Delete(item);
                 Console.WriteLine(item.Description + item.BrandName + " / " + item.ColorName + " / " + item.Price);
             }
+                Console.WriteLine(result.Message);
+            }
+            else
+            {
+                Console.WriteLine(result.Message);
 
+            }
             // operation get a car by his id
             //foreach (var item in carManager.GetAllBydId(5))
             //{
