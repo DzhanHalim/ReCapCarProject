@@ -15,7 +15,7 @@ namespace DataAccess.Concrete.EntityFramework
         }
 
         // bind the classes with db tables
-        public DbSet<Car> Cars2 { get; set; }
+        public DbSet<Car> Cars { get; set; }
         public DbSet<Brand> Brands { get; set; }
         public DbSet<Color> Colors { get; set; }
         public DbSet<User> Users { get; set; }
